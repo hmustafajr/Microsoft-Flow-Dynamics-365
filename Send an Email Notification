@@ -1,0 +1,23 @@
+{
+    "inputs": {
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['shared_sendmail']['connectionId']"
+            }
+        },
+        "method": "post",
+        "body": {
+            "to": "*******.*****@gmail.com",
+            "subject": "Dynamics Flow Test 1",
+            "text": "<p>This is a Test@{triggerBody()?['ticketnumber']}@{utcNow()}</p>",
+            "ishtml": true
+        },
+        "path": "/v3/mail/send",
+        "authentication": "@parameters('$authentication')"
+    },
+    "metadata": {
+        "flowSystemMetadata": {
+            "swaggerOperationId": "SendEmailV3"
+        }
+    }
+}
